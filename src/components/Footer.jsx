@@ -52,7 +52,7 @@ const Footer = () => (
       <div className="md:ml-auto mt-10 md:mt-0">
         <img
           src={profilePic}
-          alt="Parth Mittal"
+          alt="Fahim Ahmed"
           className="w-[200px] h-[200px] border-2 border-secondary relative z-[5] rounded-full"
         />
       </div>

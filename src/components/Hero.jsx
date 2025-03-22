@@ -19,7 +19,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className={`flex md:flex-row flex-col ${styles.paddingY} h-screen`}
+      className={`flex md:flex-row flex-col ${styles.paddingY} md:h-screen`}
     >
       <div
         className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
@@ -33,7 +33,7 @@ const Hero = () => {
 
         </div>
 
-        <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-gray-800 ss:leading-[80px] leading-[80px] w-full">
+        <h1 className="font-poppins font-semibold ss:text-[68px] text-[48px] text-gray-800 ss:leading-[80px] leading-[80px] w-full">
           <span className="text-gradient">{aboutMe.name}</span>
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
