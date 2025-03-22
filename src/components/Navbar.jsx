@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { close, parthmittal, menu } from "../assets";
+import { close, fahim, menu } from "../assets";
 import { navLinks } from "../constants";
 import { scrollToSection } from "../lib/helperFunctions";
 import { motion } from "framer-motion";
@@ -33,9 +33,9 @@ const Navbar = () => {
       {/* Logo */}
       <a href="#home">
         <img
-          src={parthmittal}
-          alt="Parth Mittal"
-          className="w-[80px] h-[80px]"
+          src={fahim}
+          alt="Fahim"
+          className="w-[60px] h-[60px] m-2 rounded-full"
         />
       </a>
 
@@ -49,7 +49,7 @@ const Navbar = () => {
             cursor-pointer
             text-[16px]
             ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}
-            text-white hover:text-teal-200`}
+            text-white hover:text-primary`}
             onClick={() => scrollToSection(nav.id)}
           >
             {nav.title}
@@ -70,7 +70,7 @@ const Navbar = () => {
         />
 
         <div
-          className={`${toggle ? "flex" : "hidden"} p-6 bg-black-gradient
+          className={`${toggle ? "flex" : "hidden"} p-6 bg-secondary
         absolute top-20 right-0 mx-4 my-2
         min-w-[140px] rounded-xl sidebar`}
         >

@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 export const SkillIcon = ({ icon, name }) => {
   return (
     <div className="flex flex-col">
-      <span className="text-white text-[30px] hover:text-teal-200">
+      <span className="text-primary text-[30px] hover:text-secondary">
         {React.createElement(icon)}
       </span>
-      <p className="font-poppins text-dimWhite text-[12px] mt-2">{name}</p>
+      <p className="font-poppins text-primary text-[12px] mt-2">{name}</p>
     </div>
   );
 };
@@ -23,7 +23,7 @@ const SkillCard = (props) => {
     >
       <div className="relative w-3 h-3 bg-gray-200 rounded-full top-5 right-[6.2px] border dark:border-gray-900 dark:bg-gray-700"></div>
       <div className="flex flex-row items-center mb-6 ml-6">
-        <h4 className="font-poppins font-semibold text-[20px] text-gradient leading-[32px]">
+        <h4 className="font-poppins font-semibold text-[20px] text-secondary leading-[32px]">
           {props.title}
         </h4>
       </div>
@@ -39,13 +39,13 @@ const SkillCard = (props) => {
 const Content = ({ text, link }) => {
   return (
     <div>
-      <p className="font-poppins font-normal text-[14px] text-dimWhite mt-4">
+      <p className="font-poppins font-normal text-[14px] text-gray-600 mt-4">
         {text}{" "}
         {link ? (
           <a href={link} target="_blank">
             <BsLink45Deg
               size="1rem"
-              className="inline hover:text-teal-200"
+              className="inline hover:text-secondary"
             ></BsLink45Deg>
           </a>
         ) : (
@@ -68,7 +68,7 @@ const ExperienceCard = (props) => {
           alt={props.organisation}
           className="w-[52px] h-[52px] rounded-full z-[2]"
         />
-        <h4 className="font-poppins font-semibold text-[20px] text-gradient leading-[32px] ml-2">
+        <h4 className="font-poppins font-semibold text-[20px] text-secondary leading-[32px] ml-2">
           {props.organisation}
         </h4>
       </div>
@@ -81,7 +81,7 @@ const ExperienceCard = (props) => {
             } ml-4`}
           >
             <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-primary">
               {position.title}
             </h3>
             <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -101,7 +101,7 @@ const ExperienceCard = (props) => {
 const SkillsAndExperience = () => {
   return (
     <section id="skills" className="mb-12">
-      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px]">
+      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-primary ss:leading-[80px] leading-[80px]">
         Skills & Experience
       </h1>
       <div

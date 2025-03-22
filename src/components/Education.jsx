@@ -33,20 +33,20 @@ const FeatureCard = ({
       <img src={icon} alt="icon" className="w-[80%] h-[80%] object-contain" />
     </div>
     <div className="flex-1 flex flex-col ml-4">
-      <h4 className="font-poppins font-semibold text-white text-[20px] leading-[30px] mb-1 text-gradient">
+      <h4 className="font-poppins font-semibold text-primary text-[20px] leading-[30px] mb-1 text-gradient">
         {title}
       </h4>
-      <p className="font-poppins font-normal text-white text-[16px] leading-[30px] mb-1 ">
+      <p className="font-poppins font-normal text-primary text-[16px] leading-[30px] mb-1 ">
         {degree}
       </p>
-      <p className="font-poppins font-normal text-dimWhite text-[14px] leading-[30px] mb-1">
+      <p className="font-poppins font-normal text-gray-600 text-[14px] leading-[30px] mb-1">
         {duration}
       </p>
-      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">   
+      <p className="font-poppins font-normal text-gray-600 text-[16px] leading-[30px] mb-1">   
       ● {content1}
       </p>
       {content2 && (
-        <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[30px] mb-1">     
+        <p className="font-poppins font-normal text-gray-600 text-[16px] leading-[30px] mb-1">     
       ● {content2}
         </p>
       )}
@@ -57,7 +57,7 @@ const FeatureCard = ({
 const Education = () => {
   return (
     <section id="education">
-      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px]">
+      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-primary ss:leading-[80px] leading-[80px]">
         Education
       </h1>
       <motion.div

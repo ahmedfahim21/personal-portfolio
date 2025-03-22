@@ -16,7 +16,7 @@ const Footer = () => (
           {aboutMe.name}
         </h2>
         <p
-          className={`font-poppins font-normal text-dimWhite text-[16px] leading-[30.8px] max-w-[470px] mt-5`}
+          className={`font-poppins font-normal text-white text-[16px] leading-[30.8px] max-w-[470px] mt-5`}
         >
         {aboutMe.tagLine}
         </p>
@@ -27,7 +27,7 @@ const Footer = () => (
               target="_blank"
               key={social.id}
               index={index}
-              className="text-white mr-5 text-[25px] hover:text-teal-200"
+              className="text-white mr-5 text-[25px] hover:text-secondary"
             >
               {React.createElement(social.icon)}
             </a>
@@ -53,13 +53,13 @@ const Footer = () => (
         <img
           src={profilePic}
           alt="Parth Mittal"
-          className="w-[200px] h-[200px] border-2 border-teal-200 relative z-[5] rounded-full"
+          className="w-[200px] h-[200px] border-2 border-secondary relative z-[5] rounded-full"
         />
       </div>
     </div>
-    <div className="text-center font-poppins font-normal text-dimWhite text-xs sm:text-sm pb-4">
+    <div className="text-center font-poppins font-normal text-white text-xs sm:text-sm pb-4">
       <p>
-        Made with 💙 by Parth Mittal & the Open Source Community
+        Portfolio template made with 💙 by Parth Mittal & the Open Source Community
       </p>
     </div>
   </footer>

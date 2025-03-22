@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     // A div to wrap the entire application
-    <div className="bg-primary w-full overflow-hidden">
+    <div className="bg-white w-full overflow-hidden">
       <AnimatePresence>
         {isLoading ? (
           <Loading key="loading" />
@@ -44,14 +44,14 @@ const App = () => {
               </div>
             </div>
 
-            <div className={`bg-primary ${styles.flexStart} pt-[80px]`}>
+            <div className={`bg-white ${styles.flexStart} pt-[80px]`}>
               <div className={`${styles.boxWidth}`}>
                 <Hero />
               </div>
             </div>
 
             <div
-              className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
+              className={`bg-white ${styles.flexCenter} ${styles.paddingX}`}
             >
               <div className={`${styles.boxWidth}`}>
                 <SkillsAndExperience />
@@ -60,7 +60,7 @@ const App = () => {
             </div>
             <Achievements />
             <div
-              className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
+              className={`bg-white ${styles.flexCenter} ${styles.paddingX}`}
             >
               <div className={`${styles.boxWidth}`}>
                 <Projects />
