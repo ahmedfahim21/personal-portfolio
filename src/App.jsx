@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Analytics } from '@vercel/analytics/react';
 
 import styles from "./style";
 import {
@@ -28,6 +29,7 @@ const App = () => {
   return (
     // A div to wrap the entire application
     <div className="bg-white w-full overflow-hidden">
+      <Analytics />
       <AnimatePresence>
         {isLoading ? (
           <Loading key="loading" />
