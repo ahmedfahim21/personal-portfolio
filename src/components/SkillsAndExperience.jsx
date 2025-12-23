@@ -30,7 +30,7 @@ const ExperienceCard = (props) => {
       className="mb-6"
     >
       <div className="flex flex-row items-center mb-6">
-        <div className="w-[52px] h-[52px] flex items-center justify-center bg-white rounded-md z-[2] shadow-md overflow-hidden">
+        <div className="w-[52px] h-[52px] flex items-center justify-center bg-white rounded-md z-[2] overflow-hidden">
             <img
             src={props.logo}
             alt={props.organisation}
@@ -73,11 +73,11 @@ const EducationCard = (props) => {
       <motion.div
         whileInView={{ y: [-20, 0], opacity: [0, 1] }}
         transition={{ duration: 1 }}
-        className="flex flex-col justify-between h-full p-8 rounded-[20px] bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+        className="flex flex-col justify-between h-full p-8 rounded-[20px] bg-white border border-gray-100"
       >
         <div>
             <div className="flex flex-row items-center mb-6">
-            <div className="w-[60px] h-[60px] flex items-center justify-center bg-white rounded-md shadow-sm border border-gray-100 p-2">
+            <div className="w-[60px] h-[60px] flex items-center justify-center bg-white rounded-md border border-gray-100 p-2">
                 <img
                 src={props.icon}
                 alt={props.title}
