@@ -1,9 +1,6 @@
 import {
   nitk,
-  gdsc,
   iris,
-  ieee,
-  hackverse,
   ethglobal,
   htf,
   manipal,
@@ -20,7 +17,13 @@ import {
   mindful,
   promanage,
   notimiser,
-  moviemaven
+  outreach,
+  fingreat,
+  xstream,
+  fildos,
+  cdphack,
+  plgenesis,
+  multipoly
 } from "../assets";
 
 import {
@@ -31,6 +34,8 @@ import {
   AiFillHtml5,
   AiOutlineGitlab,
 } from "react-icons/ai";
+
+import { SiPandas, SiPostgresql, SiPrisma, SiPydantic, SiScikitlearn, SiSubstack } from "react-icons/si";
 
 import {
   SiDjango,
@@ -71,45 +76,49 @@ import {
 } from "react-icons/si";
 
 import {
+  FaAws,
+  FaHardHat,
   FaRust
 } from "react-icons/fa";
 
 
-import { DiCss3, DiJava, DiMongodb, DiMsqlServer, DiNodejs } from "react-icons/di";
+import { DiCss3, DiJava, DiMongodb, DiNodejs } from "react-icons/di";
+import { BsGoogle } from "react-icons/bs";
 
-export const resumeLink = "https://drive.google.com/file/d/1qhRtOoYWLTLbVB4Wju_8jxL2hi_dqVy0/view?usp=sharing";
+export const resumeLink = "https://drive.google.com/file/d/1TaUN7qa-M86g5QPWRB45ysMzE8vAS6FH/view?usp=sharing";
 export const repoLink = "https://github.com/mittal-parth/personal-portfolio";
 
 export const callToAction = "https://www.linkedin.com/in/fahim-ahmed-35142a256/";
 
 export const navLinks = [
   {
-    id: "skills",
-    title: "Skills & Experience",
+    id: "twitter",
+    title: "Twitter",
+    link: "https://x.com/fhm_root",
+    icon: AiOutlineTwitter,
   },
   {
-    id: "education",
-    title: "Education",
+    id: "linkedin",
+    title: "LinkedIn",
+    link: "https://www.linkedin.com/in/fahim-ahmed-35142a256/",
+    icon: AiFillLinkedin,
   },
   {
-    id: "achievements",
-    title: "Achievements",
+    id: "github",
+    title: "Github",
+    link: "https://github.com/ahmedfahim21",
+    icon: AiFillGithub,
   },
   {
-    id: "projects",
-    title: "Projects",
+    id: "substack",
+    title: "Substack",
+    link: "https://substack.com/@ahmedfahim21",
+    icon: SiSubstack,
   },
   {
-    id: "openSource",
-    title: "Open Source",
-  },
-  {
-    id: "extraCurricular",
-    title: "Extra Curricular",
-  },
-  {
-    id: "contactMe",
-    title: "Contact Me",
+    id: "blog",
+    title: "Blog",
+    link: "https://ahmedfahim21.hashnode.dev/",
   },
 ];
 
@@ -120,7 +129,7 @@ export const educationList = [
     icon: nitk,
     title: "National Institute of Technology Karnataka, Surathkal",
     degree: "Bachelor of Technology",
-    duration: "December 2020 - May 2024",
+    duration: "December 2021 - May 2025",
     content1: "Major: Information Technology",
     content2: "Minor: Management",
   }
@@ -128,14 +137,35 @@ export const educationList = [
 
 // Add your past achievments here for example - rankings in hackathons/events
 export const achievements = [
+    {
+    id: "a-7",
+    icon: plgenesis,
+    event: "PL_Genesis: Modular Worlds Hackathon",
+    position: "Winner",
+    content1: "Overall Runner-Up",
+    content2: "Filecoin & FilCDN sponsor prizes",
+    article: "https://x.com/fhm_root/status/1946277025032908858",
+    project: "https://devspot.app/en/projects/344",
+    github: "https://github.com/ahmedfahim21/FILDOS",
+  },
+    {
+    id: "a-6",
+    icon: cdphack,
+    event: "Coinbase Agents in Action Hackathon",
+    position: "Track Winner",
+    content1: "Best Use of Amazon Bedrock",
+    article: "https://x.com/multchainsabeen/status/1940920857477742752?s=20",
+    project: "https://devfolio.co/projects/outreachai-8bcf",
+    github: "https://github.com/ahmedfahim21/Outreach",
+  },
   {
     id: "a-1",
     icon: ethglobal,
     event: "Agentic Ethereum | EthGlobal's largest Async Hackathon",
-    position: "Winner",
+    position: "Track Winner",
     content1: "Best Use of Nillion SecretVault for AI Agents",
     content2: "Autonome – Most Innovative Agent (2nd place)",
-    article: "hhttps://www.linkedin.com/posts/fahim-ahmed-35142a256_building-innovating-and-winningwe-made-activity-7298342181096853504-Vqby",
+    article: "https://www.linkedin.com/posts/fahim-ahmed-35142a256_building-innovating-and-winningwe-made-activity-7298342181096853504-Vqby",
     project: "https://ethglobal.com/showcase/athl3te-u2px7",
     github: "https://github.com/imApoorva36/athl3te",
   },
@@ -143,7 +173,7 @@ export const achievements = [
     id: "a-2",
     icon: unfold,
     event: "Unfold'24",
-    position: "Winner",
+    position: "Track Winner",
     content1: "Consumer Track Bounty Winners by Base",
     content2: "⁠Runner Up Prize by Sui Foundation",
     article: "https://www.linkedin.com/posts/fahim-ahmed-35142a256_%F0%9D%97%AA%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%BB%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B4-%F0%9D%97%AE%F0%9D%98%81-%F0%9D%97%94%F0%9D%98%80%F0%9D%97%B6%F0%9D%97%AE%F0%9D%98%80-%F0%9D%97%9F%F0%9D%97%AE%F0%9D%97%BF%F0%9D%97%B4%F0%9D%97%B2%F0%9D%98%80%F0%9D%98%81-activity-7271940862085853184-yuyn",
@@ -318,6 +348,21 @@ export const experiences = [
     link: "https://www.morganstanley.com/",
     positions: [
       {
+        title: "Technology Analyst",
+        duration: "Aug 2025 - Present",
+        content: [
+          {
+            text: "",
+            link: "",
+          },
+          {
+            text: "",
+            link: "",
+          },
+
+        ],
+      },
+      {
         title: "Summer Analyst Intern",
         duration: "May 2024 - Jul 2024",
         content: [
@@ -341,7 +386,7 @@ export const experiences = [
     positions: [
       {
         title: "Admin Lead",
-        duration: "Apr 2024 - Present",
+        duration: "Mar 2024 - May 2025",
         content: [
           {
             text: "Co-leading a team of 54 students working on app & web development, product management and server maintenance.",
@@ -396,6 +441,119 @@ export const experiences = [
 
 // Add information about all the projects to be listed out in your portfolio
 export const projects = [
+    {
+      id: "project-15",
+      title: "FilDOS",
+      github: "https://github.com/ArqosLabs/FilDOS",
+      link: "https://fildos.cloud",
+      image: fildos,
+      content:
+        "A decentralized drive built on Filecoin, reimagined for the AI era, that lets you store, search, and share files semantically",
+      stack: [
+        {
+          id: "icon-1",
+          icon: SiNextdotjs,
+          name: "NextJS"
+        },
+        {
+          id: "icon-2",
+          icon: SiSolidity,
+          name: "Solidity"
+        },
+        {
+          id: "icon-3",
+          icon: SiIpfs,
+          name: "Filecoin"
+        },
+        {
+          id: "icon-4",
+          icon: SiOpenai,
+          name: "OpenAI"
+        },
+        {
+          id: "icon-5",
+          icon: SiFlask,
+          name: "Flask"
+        },
+        {
+          id: "icon-7",
+          icon: FaHardHat,
+          name: "HardHat"
+        },
+        {
+          id: "icon-6",
+          icon: FaAws,
+          name: "AWS"
+        }
+      ],
+    },
+    {
+    id: "project-12",
+    title: "Outreach AI",
+    github: "https://github.com/ahmedfahim21/Outreach",
+    link: "https://devfolio.co/projects/outreachai-8bcf",
+    image: outreach,
+    content:
+      "AI Agents with Tools that find the right People",
+    stack: [
+      {
+        id: "icon-1",
+        icon: SiNextdotjs,
+        name: "NextJS"
+      },
+      {
+        id: "icon-3",
+        icon: SiCoinbase,
+        name: "Coinbase wallet"
+      },
+      {
+        id: "icon-4",
+        icon: FaAws,
+        name: "AWS"
+      },
+      {
+        id: "icon-5",
+        icon: BsGoogle,
+        name: "Google APIs"
+      },
+      {
+        id: "icon-6",
+        icon: SiPostgresql,
+        name: "PostgreSQL"
+      },
+      {
+        id: "icon-7",
+        icon: SiPrisma,
+        name: "Prisma"
+      },
+    ],
+  },
+  {
+    id: "project-15`",
+    title: "Multipoly",
+    github: "https://github.com/imApoorva36/multipoly",
+    link: "https://ethglobal.com/showcase/multipoly-wi7fg",
+    image: multipoly,
+    content:
+      "Gamify Web3 adoption, learn about NFTs and tokenomics through Monopoly-style gameplay with AI guidance",
+    stack: [
+      {
+        id: "icon-1",
+        icon: SiNextdotjs,
+        name: "NextJS"
+      },
+      {
+        id: "icon-2",
+        icon: SiSolidity,
+        name: "Solidity"
+      },
+      {
+        id: "icon-3",
+        icon: FaHardHat,
+        name: "HardHat"
+      }
+    ],
+  },
   {
     id: "project-1",
     title: "ATHL3TE",
@@ -403,7 +561,7 @@ export const projects = [
     link: "https://ethglobal.com/showcase/athl3te-u2px7",
     image: athlete,
     content:
-      "A Web3 fitness app with AI-driven features. Import activities, add workouts, and track health - Winning project at ETHGlobal Agentic Ethereum.",
+      "A Web3 fitness app with AI-driven features. Import activities, add workouts, and track health - Winning project at ETHGlobal Agentic Ethereum",
     stack: [
       {
         id: "icon-1",
@@ -429,6 +587,42 @@ export const projects = [
         id: "icon-5",
         icon: SiStrava,
         name: "Strava API"
+      },
+    ],
+  },
+  {
+    id: "project-13",
+    title: "FinGReaT",
+    github: "https://github.com/ahmedfahim21/Fingreat-app",
+    link: "https://fingreat-app.vercel.app/",
+    image: fingreat,
+    content:
+      "AI assistant for analyzing financial news and predicting market impacts",
+    stack: [
+      {
+        id: "icon-1",
+        icon: SiNextdotjs,
+        name: "NextJS"
+      },
+      {
+        id: "icon-2",
+        icon: SiGraphql,
+        name: "Knowledge Graphs"
+      },
+      {
+        id: "icon-3",
+        icon: SiPython,
+        name: "Python"
+      },
+      {
+        id: "icon-4",
+        icon: SiScikitlearn,
+        name: "Scikit-learn"
+      },
+      {
+        id: "icon-5",
+        icon: SiPydantic,
+        name: "Pydantic"
       },
     ],
   },
@@ -526,7 +720,7 @@ export const projects = [
     link: "http://alumni.nitk.ac.in/",
     image: nitk,
     content:
-      "The Official website of NITK's Alumni and Corporate relations. Integrated Strapi CMS for efficient content management, enabling non-technical users to update website content.",
+      "The Official website of NITK's Alumni and Corporate relations. Integrated Strapi CMS for efficient content management, enabling non-technical users to update website content",
     stack: [
       {
         id: "icon-1",
@@ -547,7 +741,7 @@ export const projects = [
     link: "http://about.iris.nitk.ac.in/",
     image: iris,
     content:
-      "The landing page of IRIS - the official ERP platform of NITK.",
+      "The landing page of IRIS - the official ERP platform of NITK",
     stack: [
       {
         id: "icon-1",
@@ -568,7 +762,7 @@ export const projects = [
     link:"https://devfolio.co/projects/learnifyai-7030",
     image: learnify,
     content:
-      "An interactive learning platform that combines the power of OpenAI's language models and Stable Diffusion for creating engaging courses, quizzes, and insightful articles with a context-aware chatbot.",
+      "An interactive learning platform that combines the power of OpenAI's language models and Stable Diffusion for creating engaging courses, quizzes, and insightful articles with a context-aware chatbot",
     stack: [
       {
         id: "icon-1",
@@ -604,7 +798,7 @@ export const projects = [
     link: "https://yamunawatersports.in/",
     image: yws,
     content:
-      "Ticket booking portal for YWS, a leading water sports learning and training center at Mukka Beach, Mangalore.",
+      "Ticket booking portal for YWS, a leading water sports learning and training center at Mukka Beach, Mangalore",
     stack: [
       {
         id: "icon-1",
@@ -635,7 +829,7 @@ export const projects = [
     link: "https://goodtyms.in/",
     image: goodtyms,
     content:
-      "Registration and booking website of GoodTyms private event halls.",
+      "Registration and booking website of GoodTyms private event halls",
     stack: [
       {
         id: "icon-1",
@@ -660,7 +854,7 @@ export const projects = [
     github: "https://github.com/ahmedfahim21/Mindful-AI",
     image: mindful,
     content:
-      "A comprehensive mental onset detection system tailored for the needs of universities and colleges with a focus on the mental health of students.",
+      "A comprehensive mental onset detection system tailored for the needs of universities and colleges with a focus on the mental health of students",
     stack: [
       {
         id: "icon-1",
@@ -696,7 +890,7 @@ export const projects = [
     link: "",
     image: promanage,
     content:
-      "A full-stack web application designed to help businesses efficiently manage various aspects of their operations, including stock management, sales analysis, expense tracking, financial reporting and more.",
+      "A full-stack web application designed to help businesses efficiently manage various aspects of their operations, including stock management, sales analysis, expense tracking, financial reporting and more",
     stack: [
       {
         id: "icon-1",
@@ -741,7 +935,7 @@ export const projects = [
     github: "https://github.com/ahmedfahim21/Notimiser",
     image: notimiser,
     content:
-      "A web application that utilizes machine learning techniques to improve the user experience in summarizing academic and non-academic texts.",
+      "A web application that utilizes machine learning techniques to improve the user experience in summarizing academic and non-academic texts",
     stack: [
       {
         id: "icon-1",
@@ -765,164 +959,6 @@ export const projects = [
       }
     ],
   },
-  {
-    id: "project-12",
-    title: "MovieMaven",
-    github: "https://github.com/ahmedfahim21/C02-Envision-Project",
-    link: "https://moviemaven-envision.netlify.app/",
-    image: moviemaven,
-    content: "Basic Movie website with React and Tailwind CSS.",
-    stack: [
-      {
-        id: "icon-1",
-        icon: SiReact,
-        name: "React"
-      },
-      {
-        id: "icon-2",
-        icon: SiTailwindcss,
-        name: "Tailwind CSS"
-      },
-      {
-        id: "icon-3",
-        icon: AiFillHtml5,
-        name: "HTML"
-      },
-    ],
-  },
-];
-
-// Add links to blogs here
-export const blogPosts = [
-  {
-    id: "post-1",
-    title: "Blog Post 01 - Title",
-    link: "#",
-    date: new Date().toLocaleDateString(), // Can be edited to any string format
-    image: "https://via.placeholder.com/600/92c952",
-    tags: [
-      {
-        id: "tag-1",
-        name: "tag 01"
-      },
-      {
-        id: "tag-2",
-        name: "tag 03"
-      },
-      {
-        id: "tag-3",
-        name: "tag 03"
-      },
-    ],
-  },
-  {
-    id: "post-2",
-    title: "Blog Post 02 - Title",
-    link: "#",
-    date: new Date().toLocaleDateString(),
-    image: "https://via.placeholder.com/600/d32776",
-    tags: [
-      {
-        id: "tag-1",
-        name: "tag 01"
-      },
-      {
-        id: "tag-2",
-        name: "tag 03"
-      },
-      {
-        id: "tag-3",
-        name: "tag 03"
-      },
-    ],
-  },
-  {
-    id: "post-3",
-    title: "Blog Post 03 - Title",
-    link: "#",
-    date: new Date().toLocaleDateString(),
-    image: "https://via.placeholder.com/600/771796",
-    tags: [
-      {
-        id: "tag-1",
-        name: "tag 01"
-      },
-      {
-        id: "tag-2",
-        name: "tag 03"
-      },
-      {
-        id: "tag-3",
-        name: "tag 03"
-      },
-    ],
-  },
-];
-
-// Highlight your GitHub stats like - Organisation, Issues Opened, Pull Requests etc.
-export const stats = [
-  {
-    id: "stats-1",
-    title: "Organisations",
-    value: "2+",
-  },
-  {
-    id: "stats-2",
-    title: "Issues Opened",
-    value: "6+",
-  },
-  {
-    id: "stats-3",
-    title: "Pull Requests",
-    value: "6+",
-  },
-];
-
-// List out the extra curricular activities you have induldged in like - student clubs, joining research groups etc.
-export const extraCurricular = [
-  {
-    id: 1,
-    organisation: "Google Developer Group, NITK",
-    title: "Co-Chair",
-    duration: "Nov 2022 - Present",
-    content: [
-      {
-        text: "Overlooking a team of 20+ students in organizing workshops and coding competitions to promote web development skills.",
-        link: "",
-      },
-      {
-        text: "Co-designed and developed the official website of Incident 2022, NITK with 15K+ visitors",
-        link: "https://incident.nitk.ac.in/",
-      },
-    ],
-    logo: gdsc,
-  },
-  {
-    id: 3,
-    organisation: "IEEE, NITK",
-    title: "Executive Member",
-    duration: "Nov 2022 - Present",
-    content: [
-      {
-        text: "Overlooked a year-long executive project and mentored a group of junior developers.",
-        link: "",
-      }
-    ],
-    logo: ieee,
-  },
-  {
-    id: 2,
-    organisation: "HackVerse, NITK",
-    title: "Technical Lead",
-    duration: "Sep 2024 - Jan 2025",
-    content: [
-      {
-        text: "Led registration management and technical operations for a national-level hackathon, to ensure seamless event execution.",
-        link: "https://hackverse5.devfolio.co/",
-      },
-    ],
-    logo: hackverse,
-  },
 ];
 
 // Links to your social media profiles
@@ -945,20 +981,24 @@ export const socialMedia = [
   {
     id: "social-media-4",
     icon: AiOutlineTwitter,
-    link: "https://x.com/ahmedfahim_21",
+    link: "https://x.com/fhm_root",
+  },
+  {
+    id: "social-media-5",
+    icon: SiSubstack,
+    link: "https://substack.com/@ahmedfahim21",
   }
 ];
 
 // Your professional summary
 export const aboutMe = {
-    name: "Fahim Ahmed",
+    name: "Fahim",
     githubUsername: 'ahmedfahim21',
-    tagLine: " Admin Lead @IRIS,NITK | Ex-Summer Intern @Morgan Stanley | 5x Hackathon Winner | NITK'25",
-    intro: "A passionate software developer with a knack for building innovative solutions. I'm currently pursuing my Bachelor's degree in Information Technology at NITK Surathkal. My interests lie in web development, blockchain, and product management."
+    tagLine: " Thinking, Building & Exploring",
+    intro: "A software engineer focused on turning ideas into products. I enjoy building and shipping across web, blockchain and AI."
 }
-
 // The maximum number of PRs to be displayed in the Open Source Contributions section.
 export const itemsToFetch = 20;
 
 // Add names of GitHub repos you'd like to display open source contributions from in the 'org/repo' format. 
-export const includedRepos = ['openMF/web-app'];
+export const includedRepos = ['openMF/web-app', 'OpenCut-app/OpenCut'];

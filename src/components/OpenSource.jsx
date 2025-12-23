@@ -3,56 +3,65 @@ import { DiGitMerge, DiGitPullRequest } from "react-icons/di";
 import { AiFillApi } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { fetchContributionsWithRetry } from "../lib/helperFunctions";
+import styles from "../style";
 
 const Contribution = (props) => {
   return (
     <motion.div
-      className="flex flex-col justify-between px-6 py-6 rounded-[20px] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 transition-colors duration-300 transform border border-gray-800"
-      whileInView={{ x: [-40, 0], opacity: [0, 1] }}
-      transition={{ duration: 1 }}
+      className="flex flex-col justify-between p-6 rounded-[20px] bg-white border border-gray-200 h-full hover:border-secondary/50 transition-colors duration-300"
+      whileInView={{ y: [20, 0], opacity: [0, 1] }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-row">
-        <img
-          src={props.logoUrl}
-          alt={props.organization}
-          className="w-[30px] h-[30px] rounded-full mt-2"
-        />
-        <div className="flex flex-col ml-4">
+      <div className="flex flex-row items-start">
+        <div className="w-[40px] h-[40px] rounded-full overflow-hidden border border-gray-100 flex-shrink-0">
+            <img
+            src={props.logoUrl}
+            alt={props.organization}
+            className="w-full h-full object-cover"
+            />
+        </div>
+        <div className="flex flex-col ml-4 flex-1">
           <a
-            className="font-poppins font-normal text-[16px] text-primary my-1 leading-[24px]"
+            className="font-poppins font-medium text-[16px] text-primary hover:text-secondary transition-colors leading-[24px] line-clamp-2"
             href={props.link}
             target="_blank"
+            rel="noopener noreferrer"
           >
             {props.title}
           </a>
-          <p className="font-poppins italic font-normal text-[14px] text-secondary my-1">
-            {props.organization}/{props.repo}
-          </p>
+          <div className="flex items-center mt-2">
+             <span className="font-poppins text-[12px] text-gray-500 bg-gray-100 px-2 py-1 rounded-md">
+                {props.organization}/{props.repo}
+             </span>
+          </div>
         </div>
       </div>
 
-      <div
-        className={`flex flex-row ${
-          props.linesAdded ? "justify-around ml-2" : "ml-10"
-        } mt-4`}
-      >
+      <div className="flex flex-row items-center justify-between mt-6 pt-4 border-t border-gray-100">
         <a
-          className="font-poppins font-normal text-[12px] text-secondary inline"
+          className="flex items-center gap-2 font-poppins font-normal text-[13px] text-gray-600 hover:text-secondary transition-colors"
           href={props.link}
           target="_blank"
+          rel="noopener noreferrer"
         >
           {props.status === "MERGED" ? (
-            <DiGitMerge size="1.5rem" className="text-violet-700 inline" />
+            <div className="flex items-center gap-1 text-purple-600 bg-purple-50 px-2 py-1 rounded-full">
+                <DiGitMerge size="1.2rem" />
+                <span>Merged</span>
+            </div>
           ) : (
-            <DiGitPullRequest size="1.5rem" className="text-green-600 inline" />
+            <div className="flex items-center gap-1 text-green-600 bg-green-50 px-2 py-1 rounded-full">
+                <DiGitPullRequest size="1.2rem" />
+                <span>Open</span>
+            </div>
           )}
-          {props.number}
+          <span className="text-gray-400">#{props.number}</span>
         </a>
         {props.linesAdded ? (
-          <p className="font-poppins font-normal text-[14px]">
-            <span className="text-green-600">+{props.linesAdded} </span>
-            <span className="text-red-700">-{props.linesDeleted}</span>
-          </p>
+          <div className="font-poppins font-normal text-[13px] flex gap-2">
+            <span className="text-green-600">+{props.linesAdded}</span>
+            <span className="text-red-500">-{props.linesDeleted}</span>
+          </div>
         ) : (
           ""
         )}
@@ -101,21 +110,23 @@ const OpenSource = () => {
 
   return (
     <section id="openSource">
-      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-primary ss:leading-[80px] leading-[80px]">
+      <h1 className={`${styles.heading2} text-center`}>
         Open Source Contributions
       </h1>
 
       <div className="container px-2 py-5 mx-auto mb-8">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mb-8">
           {!contributions.error && (
-            <div className="flex flex-wrap items-center p-1 border border-blue-gradient rounded-xl">
+            <div className="flex flex-wrap items-center justify-center gap-2 p-1">
               {filters.map(
                 (item, index) => (
                   <button
                     key={index}
                     onClick={() => handleContributionFilter(item)}
-                    className={`px-2 py-2 text-sm font-medium text-primary md:py-3 rounded-xl md:px-6 capitalize transition-colors duration-300 focus:outline-none hover:bg-secondary font-poppins ${
-                      activeFilter === item ? "bg-secondary" : ""
+                    className={`px-4 py-2 text-sm font-normal rounded-full transition-all duration-300 focus:outline-none font-poppins ${
+                      activeFilter === item 
+                      ? "bg-secondary text-white" 
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-primary"
                     }`}
                   >
                     {item}
@@ -126,23 +137,20 @@ const OpenSource = () => {
           )}
         </div>
         {contributions.error ? (
-          <div className="flex flex-col sm:-mx-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center text-center py-10">
             <AiFillApi
-              size="2rem"
-              className="text-primary mr-1 hover:text-secondary"
+              size="3rem"
+              className="text-gray-400 mb-4"
             />
-
-            <div className="mt-4 sm:mx-4 sm:mt-0">
-              <h1 className="text-xl font-semibold font-poppins text-gray-700 md:text-2xl group-hover:text-primary text-gradient">
-                Something went wrong loading this section.
-              </h1>
-              <p className="font-poppins font-normal text-secondary mt-3">
-                Please wait a few seconds and try reloading the page.
-              </p>
-            </div>
+            <h1 className="text-xl font-semibold font-poppins text-gray-700 md:text-2xl">
+                Unable to load contributions
+            </h1>
+            <p className="font-poppins font-normal text-gray-500 mt-2 max-w-md">
+                We encountered an issue while fetching the data. Please try reloading the page in a few moments.
+            </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 justify-center gap-8 mt-8 md:mt-16 md:grid-cols-3 sm:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {filterContribution.map((contribution, index) => (
               <Contribution
                 key={contribution.id}

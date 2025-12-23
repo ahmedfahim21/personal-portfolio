@@ -1,5 +1,5 @@
-import fahim from "./fahim.png";
-import profilePic from "./profile-pic.png";
+import fahim from "./fahim.jpeg";
+import profilePic from "./fahim.jpeg";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import arrowUp from "./arrow-up.svg";
@@ -10,7 +10,6 @@ import ieee from "./ieee.jpeg";
 import gdsc from "./gdsc.png";
 import iris from "./iris.png";
 import hackverse from "./hackverse.png";
-import portfolio from "./portfolio.jpg";
 import athlete from "./athlete.png";
 import placeicon from "./place-icon.svg";
 import mindful from "./mindful.png";
@@ -27,6 +26,13 @@ import htf from "./htf.jpeg";
 import ethindia from "./ethindia.png";
 import rulezero from "./rulezero.webp";
 import box3 from "./box3.webp";
+import outreach from "./outreach.webp";
+import fingreat from "./fingreat.webp";
+import xstream from "./xstream.webp";
+import fildos from "./fildos.png";
+import cdphack from "./cdphack.webp";
+import plgenesis from "./plgenesis.svg";
+import multipoly from "./multipoly.webp";
 
 export {
   menu,
@@ -39,7 +45,6 @@ export {
   iris,
   ieee,
   hackverse,
-  portfolio,
   athlete,
   fahim,
   profilePic,
@@ -57,5 +62,12 @@ export {
   htf,
   ethindia,
   rulezero,
-  box3
+  box3,
+  outreach,
+  fingreat,
+  xstream,
+  fildos,
+  cdphack,
+  plgenesis,
+  multipoly,
 };

@@ -13,9 +13,9 @@
   );
   --card-shadow: 0px 20px 100px -10px rgba(22, 50, 105, 0.1);
   --scrollbar-primary: #ffffff;
-  --scrollbar-secondary: #50bd77;
+  --scrollbar-secondary: #31c0f4;
   --primary-color: #163269;
-  --secondary-color: #50bd77;
+  --secondary-color: #31c0f4;
   --accent-color: #2c5282;
   --text-primary: #1a1a1a;
   --text-secondary: #4a5568;
@@ -52,8 +52,8 @@
 .text-gradient {
   background: linear-gradient(
     135deg,
-    #50bd77 0%,
-    #50bd77 50%,
+    #31c0f4 0%,
+    #31c0f4 50%,
     #163269 100%
   );
   -webkit-background-clip: text;
@@ -65,7 +65,7 @@
 .bg-blue-gradient {
   background: linear-gradient(
     135deg,
-    #50bd77 0%,
+    #31c0f4 0%,
     #163269 100%
   );
 }
@@ -137,7 +137,7 @@
 }
 
 .pink__gradient {
-  background: linear-gradient(90deg, #50bd77 0%, #163269 100%);
+  background: linear-gradient(90deg, #31c0f4 0%, #163269 100%);
   filter: blur(900px);
 }
 
@@ -206,26 +206,26 @@
   }
   
   .button-primary {
-    @apply px-6 py-2 bg-gradient-to-r from-[#50bd77] to-[#163269] text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:opacity-90;
+    @apply px-6 py-2 bg-gradient-to-r from-[#31c0f4] to-[#163269] text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:opacity-90;
   }
   
   .section-title {
-    @apply text-4xl font-bold mb-8 text-gradient;
+    @apply text-4xl font-medium mb-8 text-gradient;
   }
   
   .card {
-    @apply bg-white border border-[#163269]/10 rounded-xl p-6 transition-all duration-300 hover:border-[#50bd77]/50;
+    @apply bg-white border border-[#163269]/10 rounded-xl p-6 transition-all duration-300 hover:border-[#31c0f4]/50;
   }
 
   .accent-border {
-    @apply border-2 border-[#50bd77] rounded-lg;
+    @apply border-2 border-[#31c0f4] rounded-lg;
   }
 
   .accent-text {
-    @apply text-[#50bd77] font-semibold;
+    @apply text-[#31c0f4] font-semibold;
   }
 
   .section-divider {
-    @apply h-1 w-20 bg-gradient-to-r from-[#50bd77] to-[#163269] rounded-full my-8;
+    @apply h-1 w-20 bg-gradient-to-r from-[#31c0f4] to-[#163269] rounded-full my-8;
   }
 }

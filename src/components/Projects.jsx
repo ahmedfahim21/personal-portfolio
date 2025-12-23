@@ -3,71 +3,71 @@ import { projects } from "../constants";
 import { AiFillGithub } from "react-icons/ai";
 import { BsLink45Deg } from "react-icons/bs";
 import { motion } from "framer-motion";
+import styles from "../style";
 
 const Project = (props) => {
   return (
     <motion.div
-      className="px-12 py-8 transition-colors duration-300 transform border rounded-xl group feature-card"
-      initial={{ y: -30, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: false, amount: 0.5 }}
-      transition={{ duration: 0.75, delay: 0.1 }}
+      className="flex flex-col p-6 rounded-[20px] bg-white border border-gray-200 h-full hover:border-secondary/50 transition-colors duration-300"
+      whileInView={{ y: [20, 0], opacity: [0, 1] }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-col sm:-mx-4 sm:flex-row">
-        <img
-          className="flex-shrink-0 object-cover w-24 h-24 rounded-full sm:mx-4"
-          src={props.image}
-          alt=""
-        />
+      <div className="flex flex-row items-start mb-4">
+        <div className="w-[60px] h-[60px] rounded-md overflow-hidden border border-gray-100 flex-shrink-0">
+             <img
+              className="w-full h-full object-cover"
+              src={props.image}
+              alt={props.title}
+            />
+        </div>
 
-        <div className="mt-4 sm:mx-4 sm:mt-0">
-          <h1 className="text-xl font-semibold font-poppins text-gray-700 capitalize md:text-2xl group-hover:text-primary text-gradient">
+        <div className="flex flex-col ml-4 flex-1">
+          <h3 className="font-poppins font-medium text-[20px] text-primary leading-[30px]">
             {props.title}
-          </h1>
-          <p className="font-poppins font-normal text-primary mt-3">
-            Tech Stack
-          </p>
-          <div className="mt-2 text-primary capitalize">
-            <div className="flex sm:flex-row">
+          </h3>
+          
+          <div className="flex flex-wrap gap-3 mt-2">
               {props.stack.map((tech, index) => (
                 <div
                   key={tech.id}
-                  index={index}
-                  className="text-primary mr-5 text-[20px] hover:text-secondary tooltip"
+                  className="relative group text-gray-500 hover:text-secondary transition-colors text-[20px] cursor-pointer"
                 >
                   {React.createElement(tech.icon)}
-                  <span className="tooltiptext">{tech.name}</span>
+                  <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                    {tech.name}
+                  </span>
                 </div>
               ))}
             </div>
-          </div>
         </div>
       </div>
 
-      <p className="mt-8 text-primary font-poppins">
+      <p className="font-poppins font-normal text-[14px] text-gray-600 mb-6 flex-1 leading-relaxed">
         {props.content}
       </p>
 
-      <div className="flex mt-4 -mx-2">
-        {props.github ? (
-          <a href={props.github} target="_blank">
-            <AiFillGithub
-              size="2rem"
-              className="text-primary mr-1 hover:text-secondary"
-            />
+      <div className="flex items-center gap-6 pt-4 border-t border-gray-100 mt-auto">
+        {props.github && (
+          <a 
+            href={props.github} 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 font-poppins font-normal text-[14px] text-gray-600 hover:text-secondary transition-colors"
+          >
+            <AiFillGithub size="1.5rem" />
+            <span>Code</span>
           </a>
-        ) : (
-          ""
         )}
-        {props.link ? (
-          <a href={props.link} target="_blank">
-            <BsLink45Deg
-              size="2rem"
-              className="text-primary hover:text-secondary"
-            ></BsLink45Deg>
+        {props.link && (
+          <a 
+            href={props.link} 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 font-poppins font-normal text-[14px] text-gray-600 hover:text-secondary transition-colors"
+          >
+            <BsLink45Deg size="1.5rem" />
+            <span>Link</span>
           </a>
-        ) : (
-          ""
         )}
       </div>
     </motion.div>
@@ -77,7 +77,7 @@ const Project = (props) => {
 const Projects = () => {
   return (
     <section id="projects">
-      <h1 className="pt-10 flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-primary ss:leading-[80px] leading-[80px]">
+      <h1 className={`${styles.heading2} text-center pt-10`}>
         Projects
       </h1>
 
