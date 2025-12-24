@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { projects } from "../constants";
 import { AiFillGithub } from "react-icons/ai";
 import { BsLink45Deg } from "react-icons/bs";
@@ -8,7 +8,7 @@ import styles from "../style";
 const Project = (props) => {
   return (
     <motion.div
-      className="flex flex-col p-6 rounded-[20px] bg-white border border-gray-200 h-full hover:border-secondary/50 transition-colors duration-300"
+      className="project-card flex-shrink-0 flex flex-col md:w-[400px] w-[320px] p-6 rounded-[20px] bg-white border border-gray-200 md:mr-10 mr-6 my-5 hover:border-secondary/50 transition-colors duration-300"
       whileInView={{ y: [20, 0], opacity: [0, 1] }}
       transition={{ duration: 0.5 }}
     >
@@ -75,17 +75,130 @@ const Project = (props) => {
 };
 
 const Projects = () => {
-  return (
-    <section id="projects">
-      <h1 className={`${styles.heading2} text-center pt-10`}>
-        Projects
-      </h1>
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardTotalWidth, setCardTotalWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const containerRef = useRef(null);
 
-      <div className="container px-2 py-10 mx-auto mb-8">
-        <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-          {projects.map((project, index) => (
-            <Project key={project.id} index={index} {...project} />
-          ))}
+  useEffect(() => {
+    const updateCardWidth = () => {
+      if (containerRef.current) {
+        const card = containerRef.current.querySelector('.project-card');
+        if (card) {
+          const cardWidth = card.offsetWidth;
+          const cardMargin = parseInt(window.getComputedStyle(card).marginRight, 10); 
+
+          setCardTotalWidth(cardWidth + cardMargin); 
+        }
+      }
+    };
+
+    updateCardWidth(); 
+    window.addEventListener("resize", updateCardWidth); 
+
+    return () => {
+      window.removeEventListener("resize", updateCardWidth); 
+    };
+  }, []);
+
+  const handleNext = () => {
+    if (currentIndex < projects.length - 1) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const currentX = e.pageX;
+    const diff = currentX - startX;
+    setDragOffset(diff);
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const threshold = 50; 
+    
+    if (dragOffset < -threshold && currentIndex < projects.length - 1) {
+        setCurrentIndex(prev => prev + 1);
+    } else if (dragOffset > threshold && currentIndex > 0) {
+        setCurrentIndex(prev => prev - 1);
+    }
+    
+    setDragOffset(0);
+  };
+  
+  const handleMouseLeave = () => {
+      if (isDragging) handleMouseUp();
+  };
+
+  const isNextDisabled = currentIndex >= projects.length - 1;
+  const isPrevDisabled = currentIndex === 0;
+
+  return (
+    <section
+      className="bg-gray-50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] overflow-hidden py-10 md:mt-10 relative"
+      id="projects"
+    >
+      <div className={` ${styles.flexCenter} ${styles.paddingX}`}>
+        <div className={`${styles.boxWidth}`}>
+          <h1 className={`${styles.heading2} text-center`}>
+            Projects
+          </h1>
+        </div>
+      </div>
+      <div className={` ${styles.flexCenter} ${styles.paddingX}`}>
+        <div className={`${styles.boxWidth} overflow-hidden`}>
+          <div className="my-20">
+            <div
+              ref={containerRef}
+              className="flex"
+              style={{
+                transform: `translateX(calc(-${currentIndex * cardTotalWidth}px + ${dragOffset}px))`,
+                transition: isDragging ? 'none' : 'transform 0.5s ease-in-out',
+                cursor: isDragging ? 'grabbing' : 'grab'
+              }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+            >
+              {projects.map((project, index) => (
+                <Project key={project.id} index={index} {...project} />
+              ))}
+            </div>
+            <div className="flex justify-end mb-4 gap-2">
+              <button
+                onClick={handlePrev}
+                disabled={isPrevDisabled}
+                className="w-10 h-10 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-secondary transition-all duration-300"
+              >
+                &lt;
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={isNextDisabled}
+                className="w-10 h-10 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-secondary transition-all duration-300"
+              >
+                &gt;
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,104 +1,19 @@
-import React, { useState, useEffect, useRef } from "react"; // Added useRef
+import React from "react";
 import { BsLink45Deg } from "react-icons/bs";
 import { achievements } from "../constants";
 import { AiFillGithub } from "react-icons/ai";
 import { FaYoutube } from "react-icons/fa";
 import { TiNews } from "react-icons/ti";
 import styles from "../style";
-
-const Achievements = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardTotalWidth, setCardTotalWidth] = useState(0); // Added state for card width
-  const containerRef = useRef(null); // Added ref
-
-  useEffect(() => {
-    const updateCardWidth = () => {
-      if (containerRef.current) {
-        const card = containerRef.current.querySelector('.achievement-card');
-        if (card) {
-          const cardWidth = card.offsetWidth;
-          const cardMargin = parseInt(window.getComputedStyle(card).marginRight, 10); 
-
-          setCardTotalWidth(cardWidth + cardMargin); 
-        }
-      }
-    };
-
-    updateCardWidth(); 
-    window.addEventListener("resize", updateCardWidth); 
-
-    return () => {
-      window.removeEventListener("resize", updateCardWidth); 
-    };
-  }, []);
-
-  const handleNext = () => {
-    if (currentIndex < achievements.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
-  };
-
-  const isNextDisabled = currentIndex >= achievements.length - 1;
-  const isPrevDisabled = currentIndex === 0;
-
-  return (
-    <section
-      className="bg-gray-50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] overflow-hidden py-10 md:mt-10 relative"
-      id="achievements"
-    >
-      <div className={` ${styles.flexCenter} ${styles.paddingX}`}>
-        <div className={`${styles.boxWidth}`}>
-          <h1 className={`${styles.heading2} text-center`}>
-            Hackathons
-          </h1>
-        </div>
-      </div>
-      <div className={` ${styles.flexCenter} ${styles.paddingX}`}>
-        <div className={`${styles.boxWidth} overflow-hidden`}>
-          <div className="my-20">
-            <div
-              ref={containerRef}
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentIndex * cardTotalWidth}px)`, // Updated to use card width
-              }}
-            >
-              {achievements.map((achievement, index) => (
-                <AchievementCard key={index} {...achievement} />
-              ))}
-            </div>
-            <div className="flex justify-end mb-4 gap-2">
-              <button
-                onClick={handlePrev}
-                disabled={isPrevDisabled}
-                className="w-10 h-10 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-secondary transition-all duration-300"
-              >
-                &lt;
-              </button>
-              <button
-                onClick={handleNext}
-                disabled={isNextDisabled}
-                className="w-10 h-10 rounded-full border border-secondary text-secondary flex items-center justify-center hover:bg-secondary hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-secondary transition-all duration-300"
-              >
-                &gt;
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+import { motion } from "framer-motion";
 
 const AchievementCard = (props) => {
   return (
-    <div className="achievement-card flex-shrink-0 flex flex-col md:w-[400px] w-[320px] p-6 rounded-[20px] bg-white border border-gray-200 md:mr-10 mr-6 my-5 hover:border-secondary/50 transition-colors duration-300">
+    <motion.div
+      className="flex flex-col p-6 rounded-[20px] bg-white border border-gray-200 h-full hover:border-secondary/50 transition-colors duration-300"
+      whileInView={{ y: [20, 0], opacity: [0, 1] }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex flex-row items-center mb-4">
         <div className="w-[50px] h-[50px] rounded-full overflow-hidden border border-gray-100 flex-shrink-0 flex items-center justify-center bg-gray-50">
             <img
@@ -186,7 +101,25 @@ const AchievementCard = (props) => {
           </a>
         )}
       </div>
-    </div>
+    </motion.div>
+  );
+};
+
+const Achievements = () => {
+  return (
+    <section id="achievements">
+      <h1 className={`${styles.heading2} text-center pt-10`}>
+        Hackathon Achievements
+      </h1>
+
+      <div className="container px-2 py-10 mx-auto mb-8">
+        <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+          {achievements.map((achievement, index) => (
+            <AchievementCard key={achievement.id} {...achievement} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

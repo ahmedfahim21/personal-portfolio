@@ -52,12 +52,12 @@ const App = () => {
                 <SkillsAndExperience />
               </div>
             </div>
-            <Achievements />
+            <Projects />
             <div
               className={`bg-white ${styles.flexCenter} ${styles.paddingX}`}
             >
               <div className={`${styles.boxWidth}`}>
-                <Projects />
+                <Achievements />
                 <OpenSource />
               </div>
             </div>
